@@ -1,0 +1,55 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div class="container-fluid">
+  <div class="container w-50 my-5 border p-4 rounded">
+    <h1 class="text-center mb-4">Add Product</h1>
+
+    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+      <div class="form-group">
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" name="name" class="form-control" ngModel required minlength="3">
+        <div *ngIf="productForm.submitted && productForm.controls.name?.invalid" class="text-danger">
+          <small *ngIf="productForm.controls.name?.errors?.required">Product Name is required.</small>
+          <small *ngIf="productForm.controls.name?.errors?.minlength">Product Name must be at least 3 characters long.</small>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label for="price">Product Price:</label>
+        <input type="number" id="price" name="price" class="form-control" ngModel required min="1">
+        <div *ngIf="productForm.submitted && productForm.controls.price?.invalid" class="text-danger">
+          <small *ngIf="productForm.controls.price?.errors?.required">Product Price is required.</small>
+          <small *ngIf="productForm.controls.price?.errors?.min">Product Price must be a positive number.</small>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" class="form-control" ngModel required min="1">
+        <div *ngIf="productForm.submitted && productForm.controls.quantity?.invalid" class="text-danger">
+          <small *ngIf="productForm.controls.quantity?.errors?.required">Quantity is required.</small>
+          <small *ngIf="productForm.controls.quantity?.errors?.min">Quantity must be at least 1.</small>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label for="desc">Product Description:</label>
+        <input type="text" id="desc" name="desc" class="form-control" ngModel required minlength="10">
+        <div *ngIf="productForm.submitted && productForm.controls.name?.invalid" class="text-danger">
+          <small *ngIf="productForm.controls.name?.errors?.required">Product Description is required.</small>
+          <small *ngIf="productForm.controls.name?.errors?.minlength">Product Description must be at least 10 characters long.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Product Image:</label>
+        <input type="file" id="img" class="form-control-file" (change)="onFileSelect($event)" multiple value="select" #selectFile required>
+        <div *ngIf="productForm.submitted && !selectedFile" class="text-danger">
+          <small>Product Image is required.</small>
+        </div>
+      </div>
+    
+      <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Submit</button>
+    </form>
+  </div>
+</div>

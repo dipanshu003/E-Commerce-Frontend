@@ -1,0 +1,20 @@
+<app-user-navbar></app-user-navbar>
+
+<div class="container-fluid">
+  <div class="container mt-5 w-50">
+    <div class="card">
+      <div class="card-header">
+        <img *ngIf="product.productImage.url" [src]="product.productImage.url" alt="Product Image" class="img-fluid">
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">{{ product.productName }}</h3>
+        <p class="card-text">Price: {{ product.productPrice | currency:"INR" }}</p>
+        <p class="card-text">Description: {{ product.productDesc }}</p>
+      </div>
+      <div class="card-footer">
+        <input type="number" placeholder="Enter your quantity" [(ngModel)]="quantity" class="form-control">
+        <button class="btn btn-success" (click)="onAddCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

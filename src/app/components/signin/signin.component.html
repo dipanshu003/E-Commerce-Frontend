@@ -1,0 +1,62 @@
+<app-sr-navbar></app-sr-navbar>
+
+<div class="container-fluid">
+    <div class="container w-50 my-5 border p-4 rounded">
+      <h1 class="text-center mb-4">Login</h1>
+  
+      <form #signinForm="ngForm" (ngSubmit)="onSigninForm(signinForm)">
+
+        <!-- email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input
+            #userEmail="ngModel"
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+            email
+            ngModel
+            required
+          />
+          <span class="text-danger" *ngIf="userEmail.touched && userEmail.invalid">
+            Please Enter Email
+          </span>
+        </div>
+
+        <!-- password -->
+        <div class="mb-3">
+          <label for="pwd" class="form-label">Password:</label>
+          <input
+            #userPass="ngModel"
+            type="password"
+            class="form-control"
+            id="pwd"
+            placeholder="Enter password"
+            name="password"
+            ngModel
+            required
+          />
+          <span class="text-danger" *ngIf="userPass.touched && userPass.invalid">
+            Please Enter Password
+          </span>
+        </div>
+        <div class="text-center my-4">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="signinForm.invalid"
+          >
+            Login
+          </button>
+        </div>
+  
+        <!-- button -->
+        <div class="text-center">
+          <a [routerLink]="['/register']">Register new user</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,40 @@
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    
+    .navbar-brand {
+      font-weight: bold;
+      color: #007bff;
+      font-size: 1.8rem;
+      transition: color 0.3s;
+  
+      &:hover {
+        color: #0056b3;
+      }
+    }
+  
+    .nav-link {
+      color: #555;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding: 0.8rem 1rem;
+  
+      &:hover {
+        color: #007bff;
+        background-color: rgba(0, 123, 255, 0.1);
+        border-radius: 5px;
+      }
+  
+      &.active {
+        color: #007bff;
+        background-color: rgba(0, 123, 255, 0.1);
+        border-radius: 5px;
+      }
+  
+      .bi-cart-fill {
+        font-size: 1.2rem;
+        margin-right: 5px;
+      }
+    }
+  }
+  
